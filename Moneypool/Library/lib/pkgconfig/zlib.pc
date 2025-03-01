@@ -1,0 +1,13 @@
+prefix=C:/Users/gowth/anaconda3/envs/Moneypool/Library
+exec_prefix=C:/Users/gowth/anaconda3/envs/Moneypool/Library
+libdir=C:/Users/gowth/anaconda3/envs/Moneypool/Library/lib
+sharedlibdir=C:/Users/gowth/anaconda3/envs/Moneypool/Library/lib
+includedir=C:/Users/gowth/anaconda3/envs/Moneypool/Library/include
+
+Name: zlib
+Description: zlib compression library
+Version: 1.2.13
+
+Requires:
+Libs: -L${libdir} -L${sharedlibdir} -lz
+Cflags: -I${includedir}

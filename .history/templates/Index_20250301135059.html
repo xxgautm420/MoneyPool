@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Money Pooling</title>
+
+    <!-- External Stylesheets -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='Css/style.css') }}">
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">MoneyPooling</a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+                <button id="signInButton" class="btn btn-primary">Sign In</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-container">
+        <h2 class="text-center mb-4">Select Your Money Pool</h2>
+        <div class="slot-container">
+            <button class="slot"><span>Rs 1000/10m</span> <span class="members">10 Members</span></button>
+            <button class="slot"><span>Rs 2000/15m</span> <span class="members">8 Members</span></button>
+            <button class="slot"><span>Rs 3000/20m</span> <span class="members">12 Members</span></button>
+            <button class="slot"><span>Rs 5000/30m</span> <span class="members">15 Members</span></button>
+            <button class="slot"><span>Rs 10000/1h</span> <span class="members">5 Members</span></button>
+            <button class="slot"><span>Rs 15000/1h</span> <span class="members">6 Members</span></button>
+            <button class="slot"><span>Rs 20000/2h</span> <span class="members">4 Members</span></button>
+            <button class="slot"><span>Rs 25000/2h</span> <span class="members">3 Members</span></button>
+            <button class="slot"><span>Rs 30000/3h</span> <span class="members">2 Members</span></button>
+            <button class="slot"><span>Rs 50000/5h</span> <span class="members">1 Member</span></button>
+        </div>
+    </div>
+
+    <!-- Login Form (Hidden Initially) -->
+    <div id="loginFormContainer" class="login-container">
+        <div class="login-box">
+            <h3>Login</h3>
+            <input type="text" id="username" placeholder="Username">
+            <input type="password" id="password" placeholder="Password">
+            <button id="loginSubmit" class="btn btn-success">Login</button>
+            <button id="closeLogin" class="btn btn-danger">Close</button>
+        </div>
+    </div>
+
+    <!-- Join Pool Form (Hidden Initially) -->
+    <div id="joinPoolForm" class="login-container" style="display: none;">
+        <div class="login-box">
+            <h3>Join Pool</h3>
+            <button id="joinSubmit" class="btn btn-success" onclick="location.href='/progress'">Join</button>
+            <button id="closeJoinPool" class="btn btn-danger">Close</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center py-3">
+        <p>&copy; 2025 MoneyPooling. All Rights Reserved.</p>
+    </footer>
+
+    <!-- External JavaScript -->
+    <script src="{{ url_for('static', filename='Sc/script.js') }}"></script>
+</body>
+</html>
