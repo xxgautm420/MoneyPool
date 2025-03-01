@@ -59,36 +59,36 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // registrationSubmit.addEventListener("click", (event) => {
-    //     event.preventDefault();
+    registrationSubmit.addEventListener("click", (event) => {
+        event.preventDefault();
 
-    //     let username = document.getElementById("registerUsername").value;
-    //     let password = document.getElementById("registerPassword").value;
+        let username = document.getElementById("registerUsername").value;
+        let password = document.getElementById("registerPassword").value;
 
-    //     if (username && password) {
-    //         fetch('/api/users/register', {
-    //             method: 'POST',
-    //             headers: {
-    //                 'Content-Type': 'application/json'
-    //             },
-    //             body: JSON.stringify({ username: username, password: password })
-    //         })
-    //         .then(response => response.json())
-    //         .then(data => {
-    //             if (data.success) {
-    //                 alert(`Registration successful, ${username}!`);
-    //             } else {
-    //                 alert('Registration failed: ' + data.message);
-    //             }
-    //         })
-    //         .catch(error => {
-    //             console.error('Error:', error);
-    //             alert('An error occurred during registration. Please try again.');
-    //         });
-    //     } else {
-    //         alert("Please enter username and password.");
-    //     }
-    // });
+        if (username && password) {
+            fetch('/api/users/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ username: username, password: password })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert(`Registration successful, ${username}!`);
+                } else {
+                    alert('Registration failed: ' + data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred during registration. Please try again.');
+            });
+        } else {
+            alert("Please enter username and password.");
+        }
+    });
 
     // Show Join Pool Form on Slot Click
     slots.forEach(slot => {

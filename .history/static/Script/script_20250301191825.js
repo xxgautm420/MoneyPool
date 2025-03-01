@@ -4,15 +4,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const closeLogin = document.getElementById("closeLogin");
     const loginSubmit = document.getElementById("loginSubmit");
     const slots = document.querySelectorAll(".slot");
-    const joinPoolForm = document.getElementById("joinPoolForm");
-    const closeJoinPool = document.getElementById("closeJoinPool");
 
     let isSignedIn = false;
 
+    // Show Login Form on Sign In Button Click
     signInButton.addEventListener("click", () => {
         if (!isSignedIn) {
             loginFormContainer.style.display = "flex";
         } else {
+            // Sign Out Logic
             alert("You have signed out.");
             signInButton.textContent = "Sign In";
             signInButton.classList.replace("btn-danger", "btn-primary");
@@ -20,17 +20,20 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
+    // Close Login Form
     closeLogin.addEventListener("click", () => {
         loginFormContainer.style.display = "none";
     });
 
+    // Handle Login Submit
     loginSubmit.addEventListener("click", (event) => {
-        event.preventDefault();
+        event.preventDefault(); // Prevent the default form submission
 
         let username = document.getElementById("username").value;
         let password = document.getElementById("password").value;
 
         if (username && password) {
+            // Send the data to the backend using Fetch API
             fetch('/api/users/login', {
                 method: 'POST',
                 headers: {
@@ -45,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     loginFormContainer.style.display = "none";
                     signInButton.textContent = "Sign Out";
                     signInButton.classList.replace("btn-primary", "btn-danger");
-                    isSignedIn = true;
+                    isSignedIn = true; // Update sign-in status
                 } else {
                     alert('Login failed: ' + data.message);
                 }
@@ -59,50 +62,36 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // registrationSubmit.addEventListener("click", (event) => {
-    //     event.preventDefault();
-
-    //     let username = document.getElementById("registerUsername").value;
-    //     let password = document.getElementById("registerPassword").value;
-
-    //     if (username && password) {
-    //         fetch('/api/users/register', {
-    //             method: 'POST',
-    //             headers: {
-    //                 'Content-Type': 'application/json'
-    //             },
-    //             body: JSON.stringify({ username: username, password: password })
-    //         })
-    //         .then(response => response.json())
-    //         .then(data => {
-    //             if (data.success) {
-    //                 alert(`Registration successful, ${username}!`);
-    //             } else {
-    //                 alert('Registration failed: ' + data.message);
-    //             }
-    //         })
-    //         .catch(error => {
-    //             console.error('Error:', error);
-    //             alert('An error occurred during registration. Please try again.');
-    //         });
-    //     } else {
-    //         alert("Please enter username and password.");
-    //     }
-    // });
-
-    // Show Join Pool Form on Slot Click
+    // Make slots clickable
     slots.forEach(slot => {
         slot.addEventListener("click", () => {
             if (isSignedIn) {
-                joinPoolForm.style.display = "flex";
+                alert(`You selected: ${slot.textContent}`);
             } else {
                 alert("Please sign in to select a money pool.");
             }
         });
     });
+});
 
-    // Close Join Pool Form
-    closeJoinPool.addEventListener("click", () => {
-        joinPoolForm.style.display = "none";
-    });
+
+  document.getElementById('loginSubmit').addEventListener('click', function() {
+    // Placeholder for getting slot info
+    // You can replace this with your actual slot info retrieval logic
+    //let slotInfo = 'Slot info goes here';
+    console.log(slotInfo);
+  });
+
+
+  slots
+  .addEventListener("click", () => {
+    if (!isSignedIn) {
+        loginFormContainer.style.display = "flex";
+    } else {
+        // Sign Out Logic
+        alert("You have signed out.");
+        signInButton.textContent = "Sign In";
+        signInButton.classList.replace("btn-danger", "btn-primary");
+        isSignedIn = false;
+    }
 });

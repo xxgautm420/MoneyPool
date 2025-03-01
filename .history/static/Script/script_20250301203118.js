@@ -3,9 +3,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const loginFormContainer = document.getElementById("loginFormContainer");
     const closeLogin = document.getElementById("closeLogin");
     const loginSubmit = document.getElementById("loginSubmit");
+    const registrationSubmit = document.getElementById("registrationSubmit");
     const slots = document.querySelectorAll(".slot");
-    const joinPoolForm = document.getElementById("joinPoolForm");
-    const closeJoinPool = document.getElementById("closeJoinPool");
 
     let isSignedIn = false;
 
@@ -59,50 +58,61 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // registrationSubmit.addEventListener("click", (event) => {
-    //     event.preventDefault();
+    registrationSubmit.addEventListener("click", (event) => {
+        event.preventDefault();
 
-    //     let username = document.getElementById("registerUsername").value;
-    //     let password = document.getElementById("registerPassword").value;
+        let username = document.getElementById("registerUsername").value;
+        let password = document.getElementById("registerPassword").value;
 
-    //     if (username && password) {
-    //         fetch('/api/users/register', {
-    //             method: 'POST',
-    //             headers: {
-    //                 'Content-Type': 'application/json'
-    //             },
-    //             body: JSON.stringify({ username: username, password: password })
-    //         })
-    //         .then(response => response.json())
-    //         .then(data => {
-    //             if (data.success) {
-    //                 alert(`Registration successful, ${username}!`);
-    //             } else {
-    //                 alert('Registration failed: ' + data.message);
-    //             }
-    //         })
-    //         .catch(error => {
-    //             console.error('Error:', error);
-    //             alert('An error occurred during registration. Please try again.');
-    //         });
-    //     } else {
-    //         alert("Please enter username and password.");
-    //     }
-    // });
+        if (username && password) {
+            fetch('/api/users/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ username: username, password: password })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert(`Registration successful, ${username}!`);
+                } else {
+                    alert('Registration failed: ' + data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred during registration. Please try again.');
+            });
+        } else {
+            alert("Please enter username and password.");
+        }
+    });
 
-    // Show Join Pool Form on Slot Click
     slots.forEach(slot => {
         slot.addEventListener("click", () => {
             if (isSignedIn) {
-                joinPoolForm.style.display = "flex";
+                alert(`You selected: ${slot.textContent}`);
             } else {
                 alert("Please sign in to select a money pool.");
             }
         });
     });
+});
 
-    // Close Join Pool Form
-    closeJoinPool.addEventListener("click", () => {
-        joinPoolForm.style.display = "none";
+
+slots.forEach(slot => {
+    slot.addEventListener("click", () => {
+        if (isSignedIn) {
+            joinPoolForm.style.display = "flex";
+        } else {
+            alert("Please sign in to select a money pool.");
+        }
     });
+});
+
+// Close Join Pool Form
+closeJoinPool.addEventListener("click", () => {
+    joinPoolForm.style.display = "none";
+});
 });

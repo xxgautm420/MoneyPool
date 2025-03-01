@@ -1,5 +1,5 @@
 from flask import Blueprint, request, jsonify
-from user import User, db
+from muser import User, db
 
 auth_bp = Blueprint('auth', __name__)
 

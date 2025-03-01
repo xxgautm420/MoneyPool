@@ -1,4 +1,4 @@
-from flask import Flask, render_template , jsonify
+from flask import Flask, render_template
 from user import User, db
 from config import Config
 from auth import auth_bp

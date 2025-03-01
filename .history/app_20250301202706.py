@@ -1,5 +1,5 @@
-from flask import Flask, render_template , jsonify
-from user import User, db
+from flask import Flask, render_template
+from .user import db
 from config import Config
 from auth import auth_bp
 
@@ -16,11 +16,6 @@ def home():
 @app.route('/progress')
 def progress():
     return render_template('progress.html')
-
-@app.route('/api/users/top5', methods=['GET'])
-def get_top5_users():
-    users = User.query.limit(5).all()
-    return jsonify([user.username for user in users])
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -109,22 +109,3 @@ footer {
     z-index: 1000; /* Ensure it's on top of other elements */
 }
 
-.username-placeholder {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-    max-width: 400px;
-    margin: 10px 0;
-}
-
-.username-item {
-    padding: 5px;
-    border-bottom: 1px solid #ddd;
-    font-family: Arial, sans-serif;
-    font-size: 14px;
-}
-
-.username-item:last-child {
-    border-bottom: none;
-}

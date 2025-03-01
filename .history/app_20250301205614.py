@@ -1,4 +1,4 @@
-from flask import Flask, render_template , jsonify
+from flask import Flask, render_template
 from user import User, db
 from config import Config
 from auth import auth_bp
@@ -21,6 +21,8 @@ def progress():
 def get_top5_users():
     users = User.query.limit(5).all()
     return jsonify([user.username for user in users])
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)
