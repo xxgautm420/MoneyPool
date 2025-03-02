@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Money Pooling</title>
+
+    <!-- External Stylesheets -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='Css/progress.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">MoneyPooling</a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="aboutLink">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="contactLink">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div id="aboutFormContainer" class="about-container" style="display: none;">
+        <div class="about-box">
+            <section>
+                <h1>About This Project</h1>
+                <p>In today's digital age, web applications play a pivotal role in streamlining various processes and enhancing user experiences. This project focuses on developing a web application designed to facilitate a unique and engaging process where members join a slot, contribute a specified amount, and a randomly selected member benefits until all members have been selected. The application aims to provide a seamless and user-friendly experience, ensuring secure login, easy slot selection, and transparent tracking of contributions.</p>
+                <p>The project is motivated by the need to create an efficient and reliable system that can manage member contributions and random selections in a fair and transparent manner. By leveraging modern web technologies, the application aims to enhance user engagement and foster a sense of community among members. This document outlines the functional requirements, user interaction flow, technical specifications, and expected outcomes of the project.</p>
+                <button id="closeAbout" class="close-button">x</button>
+            </section>
+        </div>
+    </div>
+
+    <div id="contactFormContainer" class="contact-container" style="display: none;">
+        <div class="contact-box">
+            <section>
+                <h1>Contact</h1>
+                <form>
+                    <label for="name">Name:</label><br>
+                    <input type="text" id="name" name="name" placeholder="Your Name"><br><br>
+                    <label for="email">Email:</label><br>
+                    <input type="email" id="email" name="email" placeholder="Your Email"><br><br>
+                    <label for="number">Number:</label><br>
+                    <input type="tel" id="number" name="number" placeholder="Your Phone Number"><br><br>
+                </form>
+                <p><strong>Address:</strong> Your Address Here</p>
+                <p><strong>Contact Number:</strong> Your Contact Number Here</p>
+                <button id="closeContact" class="close-button">x</button>
+            </section>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+        <div class="card p-4">
+            <h3 id="poolName">Pool A</h3>
+            <p><strong>Amount:</strong> Rs <span id="poolAmount">1000</span></p>
+            <p><strong>Duration:</strong> 10 minutes</p>
+            <p><strong>Total Slots:</strong> 5</p>
+            <p><strong>Available Slots:</strong> <span id="availableSlots">2</span></p>
+
+            <!-- Contribution Progress -->
+            <h4 class="mt-4">Contribution Progress</h4>
+            <div class="progress mb-3">
+                <div id="progressBar" class="progress-bar" role="progressbar" style="width: 60%">60%</div>
+            </div>
+
+            <!-- Member Info Section -->
+            <h4 class="mt-4">Member Info</h4>
+            <button id="memberInfoButton" class="btn btn-primary" onclick="fetchUsername(1)">Get Member Info</button>
+            <div id="usernamePlaceholder" class="username-placeholder mt-2"></div> <!-- Placeholder for username -->
+
+            <!-- Randomly Selected Member Section -->
+            <h4 class="mt-4">Randomly Selected Member</h4>
+            <button id="randomSelectButton" class="btn btn-success">Select Random Member</button>
+            <div id="selectedMemberPlaceholder" class="selected-member-placeholder mt-2"></div> <!-- Placeholder for selected username -->
+        </div>
+        
+    
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 MoneyPooling. All Rights Reserved.</p>
+    </footer>
+
+    <!-- External JavaScript -->
+    <script src="{{ url_for('static', filename='Script/progress.js') }}"></script>
+</body>
+</html>

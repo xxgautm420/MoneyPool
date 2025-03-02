@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Money Pooling</title>
+
+    <!-- External Stylesheets -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='Css/progress.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">MoneyPooling</a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <!-- Pool Details Section -->
+    <div class="container mt-5 pt-5">
+        <h2 class="text-center mb-4">Pool Details</h2>
+        <div class="card p-4">
+            <h3 id="poolName">Pool A</h3>
+            <p><strong>Amount:</strong> Rs <span id="poolAmount">1000</span></p>
+            <p><strong>Duration:</strong> 10 minutes</p>
+            <p><strong>Total Slots:</strong> 5</p>
+            <p><strong>Available Slots:</strong> <span id="availableSlots">2</span></p>
+
+            <!-- Contribution Progress -->
+            <h4 class="mt-4">Contribution Progress</h4>
+            <div class="progress mb-3">
+                <div id="progressBar" class="progress-bar" role="progressbar" style="width: 60%">60%</div>
+            </div>
+
+            <!-- Member Info Section -->
+            <h4 class="mt-4">Member Info</h4>
+            <button id="memberInfoButton" class="btn btn-primary" onclick="fetchUsername(1)">Get Member Info</button>
+            <div id="usernamePlaceholder" class="username-placeholder mt-2"></div> <!-- Placeholder for username -->
+
+        </div>
+
+
+
+    
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 MoneyPooling. All Rights Reserved.</p>
+    </footer>
+
+    <!-- External JavaScript -->
+    <script src="{{ url_for('static', filename='Script/progress.js') }}"></script>
+</body>
+</html>
