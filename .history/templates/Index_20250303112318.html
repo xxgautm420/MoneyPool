@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Money Pooling</title>
+
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='Css/style.css') }}">
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+  
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">MoneyPooling</a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="aboutLink">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="contactLink">Contact</a>
+                    </li>
+                </ul>
+                <button id="signInButton" class="btn btn-primary">Sign In</button>
+
+        <div id="aboutFormContainer" class="about-container" style="display: none;">
+            <div class="about-box">
+        <section>
+            <h1>About This Project</h1>
+            <p>In today's digital age, web applications play a pivotal role in streamlining various processes and enhancing user experiences. This project focuses on developing a web application designed to facilitate a unique and engaging process where members join a slot, contribute a specified amount, and a randomly selected member benefits until all members have been selected. The application aims to provide a seamless and user-friendly experience, ensuring secure login, easy slot selection, and transparent tracking of contributions.</p>
+            <p>The project is motivated by the need to create an efficient and reliable system that can manage member contributions and random selections in a fair and transparent manner. By leveraging modern web technologies, the application aims to enhance user engagement and foster a sense of community among members. This document outlines the functional requirements, user interaction flow, technical specifications, and expected outcomes of the project.</p>
+            <button id="closeAbout" class="close-button"> x</button>
+        </section>
+        </div>
+    </div>
+    <div id="contactFormContainer" class="contact-container" style="display: none;">
+        <div class="contact-box">
+    <section>
+        <h1>Contact</h1>
+        <form>
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" placeholder="Your Name"><br><br>
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" placeholder="Your Email"><br><br>
+            <label for="number">Number:</label><br>
+            <input type="tel" id="number" name="number" placeholder="Your Phone Number"><br><br>
+        </form>
+        <p><strong>Address:</strong> Your Address Here</p>
+        <p><strong>Contact Number:</strong> Your Contact Number Here</p>
+        
+        <button id="closeContact" class="close-button"> x</button>
+    </section>
+    </div>
+</div>
+
+
+            </div>
+        </div>
+    </nav>
+
+ 
+    <div class="main-container">
+        <h2 class="text-center mb-4">Select Your Money Pool</h2>
+        <div class="slot-container">
+            <button class="slot"><span>Rs 10000</span> <span class="members">5 Members</span></button>
+            <button class="slot"><span>Rs 20000</span> <span class="members">5 Members</span></button>
+            <button class="slot"><span>Rs 30000</span> <span class="members">5 Members</span></button>
+            <button class="slot"><span>Rs 50000</span> <span class="members">5 Members</span></button>
+            <button class="slot"><span>Rs 10000</span> <span class="members">5 Members</span></button>
+            <button class="slot"><span>Rs 15000</span> <span class="members">5 Members</span></button>
+            <button class="slot"><span>Rs 20000</span> <span class="members">5 Members</span></button>
+            <button class="slot"><span>Rs 25000</span> <span class="members">5 Members</span></button>
+            <button class="slot"><span>Rs 30000</span> <span class="members">5 Members</span></button>
+            <button class="slot"><span>Rs 50000</span> <span class="members">5 Member</span></button>
+        </div>
+    </div>
+
+    <!-- Login Form (Hidden Initially) -->
+    <div id="loginFormContainer" class="login-container">
+        <div class="login-box">
+            <h3>Login</h3>
+            <input type="text" id="username" placeholder="Username">
+            <input type="password" id="password" placeholder="Password">
+            <button id="loginSubmit" class="btn btn-success">Login</button>
+            <button id="closeLogin" class="btn btn-danger">Close</button>
+        </div>
+    </div>
+
+    <!-- Join Pool Form (Hidden Initially) -->
+    <div id="joinPoolForm" class="login-container" style="display: none;">
+        <div class="login-box">
+            <h3>Join Pool</h3>
+            <button id="joinSubmit" class="btn btn-success" onclick="location.href='/progress'">Join</button>
+            <button id="closeJoinPool" class="btn btn-danger">Close</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center py-3">
+        <p>&copy; 2025 MoneyPooling. All Rights Reserved.</p>
+    </footer>
+
+    <!-- External JavaScript -->
+    <script src="{{ url_for('static', filename='Script/script.js') }}"></script>
+</body>
+</html>
